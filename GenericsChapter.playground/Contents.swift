@@ -45,8 +45,10 @@ struct Stack <Element>: Sequence {
                 self.push(item)
             }
     }
-    
-    mutating func filter(_ f: (Element) -> Bool) -> Stack {
+//    func filter(_ isIncluded: (Element) throws -> Bool) rethrows -> [Element] {
+//        <#code#>
+//    }
+    mutating func filter(_ f: (Element) -> Bool) -> Stack<Element> {
         var filteredItems = [Element]()
         for item in items {
             if f(item){
@@ -130,7 +132,11 @@ for value in myStack {
     print("after pushing items onto stack, got \(value)")
 }
 
-//myStack.filter()
+//myStack.filter((myStack) { $0 > 10 && $0 < 30 })
+//for value in myStack {
+//    print("after filtering items, got \(value)")
+//}
+
 
 
 
